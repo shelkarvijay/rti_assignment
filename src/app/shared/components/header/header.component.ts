@@ -29,8 +29,8 @@ export class HeaderComponent implements OnInit {
   async deleteEmployee() {
     // this.emitEmployee.emit(eve)
     await db.addEmployee.delete(this.selectedEmployee.id);
-      this._snackBar.open("Employee data added", "Done", {duration: 3000});
-      this.route.navigate(['/dashboard']);
+    this._snackBar.open("Employee data deleted", "Done", {duration: 3000});
+    this.route.navigate(['/dashboard']);
   }
 
 }
