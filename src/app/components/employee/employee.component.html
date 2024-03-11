@@ -1,0 +1,73 @@
+<app-header [selectedEmployee]="selectedEmployee"></app-header>
+<div class="employee-form">
+    <form [formGroup]="employeeForm">
+        <div class="employee-form-container" fxLayout="row wrap" fxLayout.md="row" fxLayout.sm="column"
+            fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.sm="0" fxLayoutGap.xs="0">
+            <mat-form-field appearance="outline" fxFlex="45" fxFlex.sm="100" fxFlex.lt-md="100">
+                <input matInput placeholder="Employee Name" formControlName="employeeName">
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <i class="fa-regular fa-user" matPrefix></i>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="45" fxFlex.sm="100" fxFlex.lt-md="100">
+                <i class="fa-solid fa-briefcase" matPrefix></i>
+                <mat-select formControlName="employeeRole" placeholder="Employee Role">
+                    <mat-option *ngFor="let option of employeeRole" [value]="option.value">{{ option.viewValue
+                        }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="employee-form-container" fxLayout="row wrap" fxLayout.md="row"
+            fxLayoutAlign="center" fxLayoutGap="10px">
+            <mat-form-field appearance="outline" fxFlex="40" fxFlex.sm="42" fxFlex.lt-md="42">
+                <input matInput [matDatepicker]="picker" placeholder="Today" (dateChange)="dateChanged($event)"
+                formControlName="employeeDate">
+                <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker [calendarHeaderComponent]="customDateComponent"></mat-datepicker>
+            </mat-form-field>
+            <div fxFlex="9" fxFlex.xs="8" fxFlex.lt-md="10" class="arrow-icon-div">
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <mat-form-field appearance="outline" fxFlex="40" fxFlex.sm="42" fxFlex.lt-md="42">
+                <input matInput [matDatepicker]="noDatepicker" placeholder="No date" (dateChange)="dateChanged($event)"
+                formControlName="employeeNoDate">
+                <mat-datepicker-toggle matPrefix [for]="noDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #noDatepicker [calendarHeaderComponent]="customNoDateComponent"></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <!-- <div class="employee-date-container" >
+            <mat-form-field appearance="outline" fxFlex="40" fxFlex.sm="47" fxFlex.xs="47" fxFlex.lt-md="40">
+                <input matInput [matDatepicker]="picker" placeholder="Today" (dateChange)="dateChanged($event)"
+                formControlName="employeeDate">
+                <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker [calendarHeaderComponent]="customDateComponent"></mat-datepicker>
+            </mat-form-field>
+            <div fxFlex="6" class="arrow-icon-div">
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <mat-form-field appearance="outline" fxFlex="40" fxFlex.sm="47" fxFlex.xs="47" fxFlex.lt-md="40">
+                <input matInput [matDatepicker]="noDatepicker" placeholder="Today" (dateChange)="dateChanged($event)"
+                formControlName="employeeNoDate">
+                <mat-datepicker-toggle matPrefix [for]="noDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #noDatepicker [calendarHeaderComponent]="customNoDateComponent"></mat-datepicker>
+            </mat-form-field>
+        </div> -->
+        <div class="employee-form-footer" fxLayout="row wrap" fxLayoutAlign="end">
+            <button mat-button class="footer-cancel" (click)="onClose()">
+                Cancel
+            </button>
+            <button mat-button class="footer-save" (click)="onSubmit()">
+                Save
+            </button>
+        </div>
+        <!-- <mat-form-field appearance="outline">
+            <mat-select formControlName="marital_status" #selectedMaritalStatus
+              (selectionChange)="selectMaritalStatusType(selectedMaritalStatus.value)">
+              <mat-option *ngFor="let type of maritalStatusTypes" value="{{ type.value }}">
+                {{type.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> -->
+
+    </form>
+</div>

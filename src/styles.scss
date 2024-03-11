@@ -1,0 +1,65 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$rti_assignment-primary: mat.define-palette(mat.$indigo-palette);
+$rti_assignment-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$rti_assignment-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$rti_assignment-theme: mat.define-light-theme((
+  color: (
+    primary: $rti_assignment-primary,
+    accent: $rti_assignment-accent,
+    warn: $rti_assignment-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($rti_assignment-theme);
+
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+    --main-color: #1da1f2;
+    --main-text-color: #fff;
+    --header-bgcolor: #eaeaea;
+}
+
+.footer-cancel {
+    background-color: #EDF8FF !important;
+    color: var(--main-color) !important;
+    margin-right: 12px ;
+}
+
+.footer-cancel, .footer-save {
+    width: 73px;
+    height: 40px;
+}
+
+.footer-save {
+    background-color: var(--main-color) !important;
+    color: var(--main-text-color) !important;
+}

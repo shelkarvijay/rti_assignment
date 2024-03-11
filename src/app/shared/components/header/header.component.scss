@@ -1,0 +1,14 @@
+.header-div {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--main-color);
+    padding: 0 16px;
+    color: var(--main-text-color);
+}
+
+.header-div p {
+    font-weight: 500;
+    font-size: 18px;
+}

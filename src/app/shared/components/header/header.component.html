@@ -1,0 +1,4 @@
+<div class="header-div">
+    <p>{{currentScreenName}}</p>
+    <i class="fa-solid fa-trash" *ngIf="currentScreenName.includes('Edit')" style="cursor: pointer;" (click)="deleteEmployee()"></i>
+</div>

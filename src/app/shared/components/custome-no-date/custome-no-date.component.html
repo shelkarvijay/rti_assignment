@@ -1,0 +1,36 @@
+<div fxLayout="column" style="padding: 10px;" fxLayoutGap="16px">
+    <div fxLayout="row" fxLayoutGap="10px">
+        <div fxFlex="45">
+            <button mat-button class="next-monday">No Date</button>
+        </div>
+        <div fxFlex="45">
+            <button mat-button class="common-date-buttons" (click)="todayClicked()">Today</button>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <button mat-icon-button (click)="previousClicked('month')" style="font-size: 16px;">
+            <i class="fa-solid fa-play prev-play"></i>
+        </button>
+        <div><span class="example-header-label">{{ periodLabel }}</span></div>
+        <button mat-icon-button (click)="nextClicked('month')" style="font-size: 16px;">
+            <i class="fa-solid fa-play next-play"></i>
+        </button>
+    </div>
+</div>
+<div class="date-footer">
+    <mat-divider></mat-divider>
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <div>
+            klkj
+        </div>
+        <div>
+            <button mat-button class="footer-cancel" (click)="cancelDateSelect()">
+                Cancel
+            </button>
+            <button mat-button class="footer-save" (click)="onSave()">
+                Save
+            </button>
+        </div>
+    </div>
+    
+</div>

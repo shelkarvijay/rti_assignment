@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="list-container" fxLayout="column" *ngIf="!isNoData">
+    <div class="current-emp">
+        Current employees
+    </div>
+    <ng-container *ngFor="let employee of currentEmployees; trackBy: identifyList">
+        <div class="empy-details" fxLayout="column" fxLayoutGap="6px" (click)="onSelectEmployee(employee)">
+            <div class="empy-title">{{employee.employeeName}}</div>
+            <div class="empy-sub-title">{{employee.employeeRole}}</div>
+            <div class="empy-sub-title">From {{employee.employeeDate | date: 'mediumDate'}}</div>
+        </div>
+        <mat-divider></mat-divider>
+    </ng-container>
+</div>
+<div class="list-container" fxLayout="column" *ngIf="previousEmployees.length > 0">
+    <div class="current-emp">
+        Previous employees
+    </div>
+    <ng-container *ngFor="let employee of previousEmployees; trackBy: identifyList">
+        <div class="empy-details" fxLayout="column" fxLayoutGap="6px" (click)="onSelectEmployee(employee)">
+            <div class="empy-title">{{employee.employeeName}}</div>
+            <div class="empy-sub-title">{{employee.employeeRole}}</div>
+            <div class="empy-sub-title">{{employee.employeeDate | date: 'mediumDate'}} - {{employee.employeeNoDate | date: 'mediumDate'}}</div>
+        </div>
+        <mat-divider></mat-divider>
+    </ng-container>
+</div>
+<div class="nodata-container" *ngIf="isNoData">
+    Opps! No data available.
+</div>
+<div class="footer-container">
+    <button mat-button class="footer-add" (click)="onAdd()">
+        <span>+</span>
+    </button>
+</div>
