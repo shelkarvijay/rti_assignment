@@ -30,7 +30,6 @@ export class CustomeDateComponent<D> implements AfterViewInit, OnDestroy {
       this._dateAdapter.today();
       // this._calendar._dateSelected(this._calendar.activeDate);
       this._datePicker.select(this._dateAdapter.today());
-      // this._datePicker.close();
   }
 
   ngOnDestroy() {
@@ -96,7 +95,6 @@ export class CustomeDateComponent<D> implements AfterViewInit, OnDestroy {
   }
 
   cancelDateSelect() {
-    // this._calendar.activeDate = new Date();
     this._datePicker.close();
   }
 

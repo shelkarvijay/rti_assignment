@@ -33,8 +33,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.currentEmployees = employees.filter((item: AddEmployee) => !item.employeeNoDate);
         this.previousEmployees = employees.filter((item: AddEmployee) => item.employeeNoDate != null);
       }
-    })
-    // if(this.employeeLists$)
+    });
   }
 
   identifyList(index: number, list: AddEmployee) {

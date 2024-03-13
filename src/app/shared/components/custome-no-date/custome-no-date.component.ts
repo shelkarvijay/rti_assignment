@@ -28,7 +28,6 @@ export class CustomeNoDateComponent<D> implements AfterViewInit, OnDestroy {
   public todayClicked() {
     this._calendar.activeDate =
       this._dateAdapter.today();
-      // this._calendar._dateSelected(this._calendar.activeDate);
       this._datePicker.select(this._dateAdapter.today());
       // this._datePicker.close();
   }
@@ -70,7 +69,6 @@ export class CustomeNoDateComponent<D> implements AfterViewInit, OnDestroy {
   }
 
   cancelDateSelect() {
-    // this._calendar.activeDate = new Date();
     this._datePicker.close();
   }
 

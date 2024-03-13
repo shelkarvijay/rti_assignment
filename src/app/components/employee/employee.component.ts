@@ -73,11 +73,8 @@ export class EmployeeComponent implements OnInit {
   }
 
   async onSubmit() {
-    console.log(this.employeeForm.value);
+    // console.log(this.employeeForm.value);
     let params = this.employeeForm.value;
-    //   employeeName: this.employeeForm.get('employeeName')?.value.toString(),// ? this.employeeForm.get('employeeName')?.value.toString() : '',
-    //   employeeRole: this.employeeForm.get('employeeRole')?.value.toString(),
-    // };
     if(this.coreService.employeeObj.status === 'add') {
       await db.addEmployee.add(this.employeeForm.value);
       this._snackBar.open("Employee data added", "Done", {duration: 3000});
@@ -93,9 +90,5 @@ export class EmployeeComponent implements OnInit {
 
   dateChanged($event: any) {
 
-  }
-
-  emitEmployee(event: any) {
-    console.log(event);
   }
 }
