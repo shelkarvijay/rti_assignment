@@ -36,6 +36,7 @@ export class EmployeeComponent implements OnInit {
   customDateComponent = CustomeDateComponent;
   customNoDateComponent = CustomeNoDateComponent;
   selectedEmployee!: AddEmployee;
+  employeeModel: EmployeeData = new EmployeeData();
   // @ViewChild('picker', { static: true })
   // private picker!: MatDatepicker<Date>;
   constructor(
@@ -45,24 +46,19 @@ export class EmployeeComponent implements OnInit {
     private coreService: CoreService
   ) {}
   ngOnInit() {
-    this.createForm();
     if(this.coreService.employeeObj.selectedEmployee.length > 0) {
-      this.employeeForm.setValue({
-        employeeName: this.coreService.employeeObj.selectedEmployee[0]?.employeeName,
-        employeeRole: this.coreService.employeeObj.selectedEmployee[0]?.employeeRole,
-        employeeDate: this.coreService.employeeObj.selectedEmployee[0]?.employeeDate,
-        employeeNoDate: this.coreService.employeeObj.selectedEmployee[0]?.employeeNoDate
-      });
+      this.employeeModel = this.coreService.employeeObj.selectedEmployee[0];
       this.selectedEmployee = this.coreService.employeeObj.selectedEmployee[0];
     }
+    this.createForm();
   }
 
   createForm() {
     this.employeeForm = this.formBuilder.group({
-      employeeName: [],
-      employeeRole: [],
-      employeeDate: [],
-      employeeNoDate: []
+      employeeName: [this.employeeModel.employeeName],
+      employeeRole: [this.employeeModel.employeeRole],
+      employeeDate: [this.employeeModel.employeeDate],
+      employeeNoDate: [this.employeeModel.employeeNoDate]
       // today: [],
       // noDate: []
     });
@@ -91,4 +87,11 @@ export class EmployeeComponent implements OnInit {
   dateChanged($event: any) {
 
   }
+}
+
+export class EmployeeData {
+  employeeName!: string;
+  employeeRole!: string;
+  employeeDate!: string;
+  employeeNoDate!: string;
 }
